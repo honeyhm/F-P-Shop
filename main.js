@@ -1,12 +1,3 @@
-// Amazon Shopping
-
-/*IMPLEMENT A CART FEATURE:
-1. Add items to cart
-2. Add 30% tax to item in cart
-3. Buy item: cart ---> purchases
-4. Empty cart 
-*/
-
 const user={
     name: 'honey',
     active: true,
@@ -15,7 +6,7 @@ const user={
 }
 
 //st like DB for logs
-let amazonHistory = []
+let shopHistory = []
 
 // // //first scenario:
 // //this one includes all 4 other tasks (like compose)
@@ -45,13 +36,13 @@ function purchaseItem(...fns){
 
 
 function addItemToCart(user,item){
-    amazonHistory.push(user)
+    shopHistory.push(user)
     const updateCart = user.cart.concat(item)
     return Object.assign({}, user, { cart: updateCart })
 }
 
 function applyTaxToItems(user){
-    amazonHistory.push(user)
+    shopHistory.push(user)
     //using {cart} instead of user.cart
     const {cart}= user;
     const taxRate = 1.3;
@@ -65,24 +56,17 @@ function applyTaxToItems(user){
 }
 
 function buyItem(user){
-    amazonHistory.push(user)
+    shopHistory.push(user)
     return Object.assign({}, user, {purchases: user.cart})
 }
 
 function emptyCart(user){
-    amazonHistory.push(user)
+    shopHistory.push(user)
     return Object.assign({}, user, {cart: []} )
 }
 
-console.log(amazonHistory)
-function refundItem(){
-
-}  
-
-function getUserState()
-
-function goForward()
-
-function changeStatus(){
-
-}
+// console.log(amazonHistory)
+// function refundItem()
+// function getUserState()
+// function goForward()
+// function changeStatus()
